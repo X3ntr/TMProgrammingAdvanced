@@ -90,7 +90,14 @@ namespace _07_LinearProbing
             string s = "";
             foreach(KeyValuePair<string, double> kvp in ht)
             {
-                s += kvp.Key + " " + kvp.Value + "\n";
+                if (kvp.Key != null)
+                {
+                    s += kvp.Key + " " + kvp.Value + "\n";
+                }
+                else
+                {
+                    s += "null\n";
+                }
             }
             return s.Remove(s.Length -1,1);
         }

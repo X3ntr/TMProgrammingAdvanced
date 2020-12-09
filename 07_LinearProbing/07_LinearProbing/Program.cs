@@ -13,10 +13,25 @@ namespace _07_LinearProbing
             int size = Convert.ToInt32(Console.ReadLine());
             HashTable ht = new HashTable(size);
 
-            for (int i = 0; i <= size; i++)
+            bool x = false;
+            while(!x)
             {
-                string[] s = Console.ReadLine().Trim().Split(',');
-                ht.AddItem(s[0], Convert.ToInt32(s[1]));
+                string[] s = Console.ReadLine().Replace(", ", ",").Split(',');
+
+                if(s.Length == 1 && s[0] == "x")
+                {
+                    x = true;
+                    break;
+                }
+
+                if (s.Length == 2)
+                {
+                    ht.AddItem(s[0], Convert.ToDouble(s[1]));
+                }
+                else
+                {
+                    continue;
+                }
             }
             Console.WriteLine(ht.ToString());
         }
